@@ -1,4 +1,6 @@
-const produtos = [
+import styles from './App.module.css'
+
+const productos = [
   {
     nome: "Macbook Air 13 Chip M1 256gb",
     image: "https://m.media-amazon.com/images/I/41O807iqbCL._AC_SX522_.jpg",
@@ -23,28 +25,15 @@ const produtos = [
 
 function App() {
   return (
-    <div>
-      <h1>Produtos</h1>
-
-      <ul>
-        <li>
-          <h2>{produtos[0].nome}</h2>
-          <img src={produtos[0].image} />
-          <h3>{produtos[0].preco}</h3>
-        </li>
-
-        <li>
-          <h2>{produtos[1].nome}</h2>
-          <img src={produtos[1].image} />
-          <h3>{produtos[1].preco}</h3>
-        </li>
-
-        <li>
-          <h2>{produtos[2].nome}</h2>
-          <img src={produtos[2].image} />
-          <h3>{produtos[2].preco}</h3>
-        </li>
-      </ul>
+    <div className={styles.container}>
+      <h1>Productos</h1>
+        {productos.map((item, index) => (
+          <div className={styles.itemContainer} key={index}>
+            <h2>{item.nome}</h2>
+            <img className={styles.image} src={item.image} />
+            <h3>{item.preco}</h3>
+          </div>
+        ))}
     </div>
   );
 }
